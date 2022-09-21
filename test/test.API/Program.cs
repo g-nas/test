@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using test.API.Data;
+using test.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,12 @@ builder.Services.AddDbContext<testDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("test"));
 });
+
+// Inject repositories
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+
+// Inject automapper
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 
