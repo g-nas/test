@@ -20,6 +20,7 @@ builder.Services.AddDbContext<testDbContext>(options =>
 // Inject repositories
 builder.Services.AddScoped<IRegionRepository, RegionRepository>();
 builder.Services.AddScoped<IWalkRepository, WalkRepository>();
+builder.Services.AddScoped<IWalkDifficultyRepository, WalkDifficultyRepository>();
 
 // Inject automapper
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
