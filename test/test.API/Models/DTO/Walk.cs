@@ -1,4 +1,6 @@
-﻿namespace test.API.Models.Domain
+﻿using test.API.Models.DTO;
+
+namespace test.API.Models.DTO
 {
     public class Walk
     {
@@ -7,10 +9,7 @@
         public Guid WalkDifficultyId { get; set; }
         public string Name { get; set; }
         public double Length { get; set; }
-
-        // Navigation Properties
         public Region Region { get; set; }
         public WalkDifficulty WalkDifficulty { get; set; }
-
     }
 }
