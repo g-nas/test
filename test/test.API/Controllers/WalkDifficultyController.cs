@@ -62,6 +62,7 @@ namespace test.API.Controllers
             var walkDifficultyDTO = mapper.Map<Models.DTO.WalkDifficulty>(walkDifficulty);
             return CreatedAtAction(nameof(GetWalkDifficultyAsync), new { id = walkDifficulty.Id }, walkDifficultyDTO);
         }
+        
         [HttpPut]
         [Route("{id:guid}")]
         [Authorize(Roles = "writer")]
@@ -81,6 +82,7 @@ namespace test.API.Controllers
             return Ok(walkDifficultyDTO);
 
         }
+        
         [HttpDelete]
         [Route("{id:guid}")]
         [Authorize(Roles = "writer")]

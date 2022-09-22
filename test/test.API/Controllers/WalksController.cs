@@ -138,7 +138,7 @@ namespace test.API.Controllers
                 ModelState.AddModelError(nameof(addWalkRequest.RegionId), $"{nameof(addWalkRequest.RegionId)} is invalid.");
             }
 
-            var walkDifficulty = await walkRepository.GetAsync(addWalkRequest.WalkDifficultyId);
+            var walkDifficulty = await walkDifficultyRepository.GetAsync(addWalkRequest.WalkDifficultyId);
             if (walkDifficulty == null)
             {
                 ModelState.AddModelError(nameof(addWalkRequest.WalkDifficultyId), $"{nameof(addWalkRequest.WalkDifficultyId)} is invalid.");
@@ -160,7 +160,7 @@ namespace test.API.Controllers
                 ModelState.AddModelError(nameof(updateWalkRequest.RegionId), $"{nameof(updateWalkRequest.RegionId)} is invalid.");
             }
 
-            var walkDifficulty = await walkRepository.GetAsync(updateWalkRequest.WalkDifficultyId);
+            var walkDifficulty = await walkDifficultyRepository.GetAsync(updateWalkRequest.WalkDifficultyId);
             if (walkDifficulty == null)
             {
                 ModelState.AddModelError(nameof(updateWalkRequest.WalkDifficultyId), $"{nameof(updateWalkRequest.WalkDifficultyId)} is invalid.");
