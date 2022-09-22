@@ -24,7 +24,9 @@ namespace test.API.Controllers
         public async Task<IActionResult> GetAllWalkDifficultyAsync()
         {
             var walkDifficulty = await walkDifficultyRepository.GetAllAsync();
+
             var walkDifficultyDTO = mapper.Map<List<Models.DTO.WalkDifficulty>>(walkDifficulty);
+
             return Ok(walkDifficultyDTO);
         }
 
@@ -44,6 +46,7 @@ namespace test.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddWalkDifficultyAsync([FromBody] AddWalkDifficultyRequest addWalkDifficultyRequest)
         {
+            // Convert to Domain
             var walkDifficulty = new Models.Domain.WalkDifficulty()
             {
                 Code = addWalkDifficultyRequest.Code,
@@ -57,6 +60,7 @@ namespace test.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> UpdateWalkDifficultyAsync([FromRoute] Guid id, [FromBody] UpdateWalkDifficultyRequest updateWalkDifficultyRequest)
         {
+            // Convert to Domain
             var walkDifficulty = new Models.Domain.WalkDifficulty()
             {
                 Code = updateWalkDifficultyRequest.Code,

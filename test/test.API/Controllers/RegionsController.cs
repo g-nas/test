@@ -27,10 +27,10 @@ namespace test.API.Controllers
         {
             var regions = await regionRepository.GetAllAsync();
 
-            // create and return DTO regions by automapper
+            // Create and return DTO
             var regionsDTO = mapper.Map<List<Models.DTO.Region>>(regions);
 
-            return Ok(regions);
+            return Ok(regionsDTO);
         }
 
         [HttpGet]
@@ -115,5 +115,6 @@ namespace test.API.Controllers
             var regionDTO = mapper.Map<Models.DTO.Region>(region);
             return Ok(regionDTO);
         }
+
     }
 }
